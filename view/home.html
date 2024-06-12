@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cabecalho.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <title>Jedi Shop Gamer</title>
+</head>
+<body>
+<header>
+        <div class="navegacao">
+          <div class="logo">
+            <img class="img-logo"
+              src="../assets/logo.png"
+              alt="logo"
+            />
+          </div>
+          <div class="plataform">
+            Qual a sua plataforma?
+          </div>
+          <div class="logos-plataform">
+            <img class="ps5" src="https://nissei.com/media/wysiwyg/PlayStation_5_logo_and_wordmark_-_1.png" alt="logo PS5">
+            <img class="xbox" src="https://www.kabum.com.br/hotsite/xboxseries/img/logo-xbox-series-x.png" alt="logo Xbox">
+            <img class="nintendo" src="https://logosmarcas.net/wp-content/uploads/2020/11/Nintendo-Logo-2006-2016.png" alt="logo nintendo">
+          </div>
+          <div class="login">
+            <a href="#">Login</a>
+          </div>
+          <div class="carrinho">
+            <img class="img-carrinho" src="https://cdn-icons-png.flaticon.com/512/5381/5381441.png" alt="carrinho">
+          </div>
+        </div>
+</header>
+
+
+<div class="slider">
+    <div class="slides">
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+
+        <div class="slide first">
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202206/0720/0kRqUeSBIbQzz7cen3c989c6.jpg" alt="The Last of Us">
+        </div>
+        <div class="slide">
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202009/3021/QeJWAaLcYNOpCv7yCVZZEOY5.jpg" alt="Spider Man">
+        </div>
+        <div class="slide">
+            <img src="https://image.api.playstation.com/vulcan/img/rnd/202010/2217/LsaRVLF2IU2L1FNtu9d3MKLq.jpg" alt="God of War">
+        </div>
+        
+        <div class="slide">
+            <img src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/09/ea-fc-24-e1696020480836.jpeg?w=862" alt="FC 24">
+        </div>
+
+        <div class="navigation-auto">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+            <div class="auto-btn4"></div>
+        </div>
+
+    </div>
+
+    <div class="manual-navigation">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+    </div>
+
+    <button class="nav-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+    <button class="nav-btn next-btn" onclick="nextSlide()">&#10095;</button>
+
+</div>
+
+  <script src="../js/home.js"></script>
+ 
+</html>
