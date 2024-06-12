@@ -3,11 +3,6 @@
     margin: 0;
     box-sizing: border-box;
   }
-
-a {
-    text-decoration: none;
-    color: inherit;
-  }
   
   body {
     background-color: #1b2838;
@@ -60,11 +55,12 @@ a {
   }
   
   
-  .login {
+  .login > a {
     color: #DCDEDF;
     font-size: 20px;
     margin-left: 100px;
     margin-right: 20px;
+    text-decoration: none;
   }
   
   .img-carrinho {

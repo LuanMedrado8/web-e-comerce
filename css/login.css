@@ -9,7 +9,7 @@
 .text-sing {
   position: relative;
   color: #fff;
-  margin-top: 11px;
+  margin-top: 100px;
   font: 800 28px Inter, sans-serif;
 }
 
@@ -18,7 +18,7 @@
   border-radius: 4px;
   background-color: #181a21;
   display: flex;
-  margin-top: 43px;
+  margin-top: 50px;
   width: 707px;
   max-width: 100%;
   flex-direction: column;
@@ -205,53 +205,5 @@ input {
   text-decoration-line: underline;
 }
 
-.footer{
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  background-color: #181a21;
-  align-self: stretch;
-  display: flex;
-  margin-top: 150px;
-  text-align: center;
-  padding: 48px 60px 0;
-}
 
-.conter-footer {
-  display: flex;
-  gap: 0px;
-}
-
-.new-conta {
-  max-width: 300px;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-  padding: 2px 46px 13px;
-}
-
-.text-new {
-  font: 800 20px Inter, sans-serif;
-}
-.button-create {
-  border-radius: 2px;
-  background: linear-gradient(90deg, #47bfff 5%, #1a44c2 60%);
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
-  margin-top: 15px;
-  justify-content: center;
-  padding: 0 20px;
-  font: 400 15px/30px Inter, sans-serif;
-  color: #fff;
-  cursor: pointer;
-}
-.text-decorat {
-  align-self: start;
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  color: #b8b6b4;
-  font-weight: 400;
-  padding: 1px 11px 2px;
-}
 
