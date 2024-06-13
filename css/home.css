@@ -131,3 +131,82 @@
 .nav-btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    height: 100vh; /* Altura total da tela */
+    background-color: #1b2838; /* Cor de fundo para combinar com o resto do site */
+}
+
+.product-card {
+    width: 300px; /* Largura do card */
+    height: 350px;
+    margin-top: 100px;
+    border: 1px solid #ddd; /* Borda do card */
+    border-radius: 8px; /* Bordas arredondadas */
+    overflow: hidden; /* Esconde o conteúdo que excede o card */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.2s; /* Transição suave ao passar o mouse *//
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.product-image {
+    width: 100%; /* Imagem ocupa toda a largura do card */
+    height: 50%;
+    object-fit: c; /* Altura automática */
+    
+}
+
+.product-info {
+    padding: 16px; /* Espaçamento interno */
+    text-align: center; /* Centralizar texto */
+}
+
+.product-title {
+    font-size: 1.5em; /* Tamanho da fonte do título */
+    margin: 0 0 10px 0; /* Margem inferior */
+    color: #fff;
+}
+
+.product-description {
+    font-size: 1.5em; /* Tamanho da fonte da descrição */
+    color: #ffffff; /* Cor do texto da descrição */
+    margin: 0 0 10px 0; /* Margem inferior */
+}
+
+.product-old {
+    font-size: 1.5em; /* Tamanho da fonte da descrição */
+    color: #ffffff; /* Cor do texto da descrição */
+    margin: 0 0 10px 0; /* Margem inferior */
+    text-decoration: line-through;
+}
+
+
+.product-price {
+    font-size: 1.1em; /* Tamanho da fonte do preço */
+    font-weight: bold; /* Negrito */
+    color: #333; /* Cor do texto do preço */
+    display: block; /* Exibir como bloco */
+    margin-bottom: 10px; /* Margem inferior */
+}
+
+.add-to-cart {
+    background-color: #00cfff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Sem borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    padding: 10px 16px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    text-align: center; /* Alinhar o texto ao centro */
+    display: block; /* Exibir como bloco */
+    width: 100%; /* Botão ocupa toda a largura do card */
+}
+
+.add-to-cart:hover {
+    background-color: #0099cc; /* Cor de fundo ao passar o mouse */
+}

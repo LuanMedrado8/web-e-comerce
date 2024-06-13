@@ -11,6 +11,7 @@
   .navegacao {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #171D25;
     height: 100px;
   }
@@ -21,22 +22,21 @@
     object-position: center;
     margin-top: 12px;
     margin-left: 40px;
-    
-    
+    justify-content: flex-start;
   }
-  
-  .plataform {
-    color: #DCDEDF;
-    font-size: 20px;
-    margin-left: 40%;
-    
+
+  .logos-plataform {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex: 2;
   }
-  
+
   .ps5 {
     width: 100px;
     aspect-ratio: 3/2;
     object-fit: contain;
-    margin-left: 100px;
+    
   }
   
   .xbox {
@@ -44,38 +44,33 @@
     aspect-ratio: 3/2;
     object-fit: contain;
     margin-left: 40px;
-    margin-right: 40px;
+    
   }
   
   .nintendo {
     width: 100px;
     aspect-ratio: 3/2;
     object-fit: contain;
-    margin-right: 100px;
+    
   }
   
   
   .login > a {
     color: #DCDEDF;
     font-size: 20px;
-    margin-left: 100px;
+    
     margin-right: 20px;
     text-decoration: none;
   }
   
   .img-carrinho {
     width: 30px;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 40px;
     
   }
   
-  .nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    min-height: 805px;
-    width: 100%;
-  }
+  
