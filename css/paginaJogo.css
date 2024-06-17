@@ -39,7 +39,7 @@
 }
 
 .product-description {
-    font-size: 25px; /* Tamanho da fonte da descrição */
+    font-size: 60px; /* Tamanho da fonte da descrição */
     color: #ffffff; /* Cor do texto da descrição */
     
 }
@@ -49,6 +49,13 @@
     color: #ffffff; /* Cor do texto da descrição */
     margin-top: 50px;
     text-decoration: line-through;
+}
+
+.plataform {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 20px;
+
 }
 
 .add-to-cart {
@@ -62,12 +69,15 @@
     display: block; /* Exibir como bloco */
     width: 50%; /* Botão ocupa toda a largura do card */
     height: 60px;
-    margin-top: 70px;
+    margin-top: 60px;
     font-size: 20px;
+    transition: transform 0.2s; /* Transição suave ao passar o mouse */
+    text-decoration: none;
 }
 
 .add-to-cart:hover {
     background-color: #0099cc; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do card ao passar o mouse */
 }
 
 .estoque {
