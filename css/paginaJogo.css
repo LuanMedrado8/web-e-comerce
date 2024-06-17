@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+.jogo {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não couberem na mesma */
+    justify-content: space-around;
+}
+
+.jogo-imagem {
+
+    width: 480px;
+}
+
+.jogo-imagem > img {
+    width: 480px;
+    height: 480px;
+    object-fit: cover;
+    object-position: center;
+    margin-left: 200px;
+    border-radius: 20px;
+    margin-top: 100px;
+}
+
+.product-info {
+    padding: 16px; /* Espaçamento interno */
+    width: 720px;
+    margin-top: 100px;
+}
+
+.product-title {
+    font-size: 30px;
+    width: 720px; /* Tamanho da fonte do título */
+
+    color: #fff;
+}
+
+.product-description {
+    font-size: 25px; /* Tamanho da fonte da descrição */
+    color: #ffffff; /* Cor do texto da descrição */
+    
+}
+
+.product-old {
+    font-size: 25px; /* Tamanho da fonte da descrição */
+    color: #ffffff; /* Cor do texto da descrição */
+    margin-top: 50px;
+    text-decoration: line-through;
+}
+
+.add-to-cart {
+    background-color: #00cfff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Sem borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    padding: 10px 16px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    text-align: center; /* Alinhar o texto ao centro */
+    display: block; /* Exibir como bloco */
+    width: 50%; /* Botão ocupa toda a largura do card */
+    height: 60px;
+    margin-top: 70px;
+    font-size: 20px;
+}
+
+.add-to-cart:hover {
+    background-color: #0099cc; /* Cor de fundo ao passar o mouse */
+}
+
+.estoque {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 5px;
+}
+
+.space {
+    height: 400px;
+}

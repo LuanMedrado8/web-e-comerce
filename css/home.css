@@ -136,14 +136,14 @@
     display: flex;
     justify-content: center;
     gap: 40px;
-    height: 100vh; /* Altura total da tela */
+    height: 500px; /* Altura total da tela */
     background-color: #1b2838; /* Cor de fundo para combinar com o resto do site */
 }
 
 .product-card {
     width: 300px; /* Largura do card */
     height: 350px;
-    margin-top: 100px;
+    margin-top: 40px;
     border: 1px solid #ddd; /* Borda do card */
     border-radius: 8px; /* Bordas arredondadas */
     overflow: hidden; /* Esconde o conteúdo que excede o card */
@@ -209,4 +209,106 @@
 
 .add-to-cart:hover {
     background-color: #0099cc; /* Cor de fundo ao passar o mouse */
+}
+
+.lancamento {
+    font-size: 20px;
+    margin-left: 300px;
+    color: #fff;
+
+}
+
+.destaque {
+    font-size: 20px;
+    margin-left: 300px;
+    color: #fff;
+
+}
+
+.cards-l {
+    display: flex;
+    margin-left: 290px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+    height: 800px; /* Altura total da tela */
+    background-color: #1b2838; /* Cor de fundo para combinar com o resto do site */
+}
+
+.product-card-l {
+    width: 360px; /* Largura do card */
+    height: 360;
+    margin: 10px;
+    margin-top: 40px;
+    border: 1px solid #ddd; /* Borda do card */
+    border-radius: 8px; /* Bordas arredondadas */
+    overflow: hidden; /* Esconde o conteúdo que excede o card */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.2s; /* Transição suave ao passar o mouse *//
+}
+
+.product-card-lu {
+    width: 360px; /* Largura do card */
+    height: 360px;
+    margin: 10px;
+    margin-top: 40px;
+    border: 1px solid #ddd; /* Borda do card */
+    border-radius: 8px; /* Bordas arredondadas */
+    overflow: hidden; /* Esconde o conteúdo que excede o card */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.2s; /* Transição suave ao passar o mouse *//
+}
+
+.product-card-l:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.product-card-lu:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.product-card-l:first-child { /* Estilos específicos para o primeiro card */
+    width: 720px;
+    height: 760px; /* Ocupa 60% da largura do container */
+  }
+  
+ .product-title-l {
+    font-size: 2.0em; /* Tamanho da fonte do título */
+    margin: 0 0 30px 0; /* Margem inferior */
+    color: #fff;
+}
+
+.product-description-l {
+    font-size: 2.0em; /* Tamanho da fonte da descrição */
+    color: #ffffff; /* Cor do texto da descrição */
+    margin: 0 0 110px 0; /* Margem inferior */
+}
+
+.product-old-l {
+    font-size: 2.0em; /* Tamanho da fonte da descrição */
+    color: #ffffff; /* Cor do texto da descrição */
+    margin: 0 0 30px 0; /* Margem inferior */
+    text-decoration: line-through;
+}
+  
+.add-to-cart-l {
+    background-color: #00cfff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Sem borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    padding: 20px 16px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    text-align: center; /* Alinhar o texto ao centro */
+    display: block; /* Exibir como bloco */
+    width: 100%; /* Botão ocupa toda a largura do card */
+    font-size: 20px;
+}
+
+.add-to-cart-l:hover {
+    background-color: #0099cc; /* Cor de fundo ao passar o mouse */
+}
+
+.space {
+    display: block;
+    height: 400px;
 }
