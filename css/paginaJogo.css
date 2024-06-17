@@ -6,7 +6,7 @@
   
 .jogo {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não couberem na mesma */
+    flex-wrap: wrap; 
     justify-content: space-around;
 }
 
@@ -26,27 +26,27 @@
 }
 
 .product-info {
-    padding: 16px; /* Espaçamento interno */
+    padding: 16px; 
     width: 720px;
     margin-top: 100px;
 }
 
 .product-title {
     font-size: 30px;
-    width: 720px; /* Tamanho da fonte do título */
+    width: 720px; 
 
     color: #fff;
 }
 
 .product-description {
-    font-size: 60px; /* Tamanho da fonte da descrição */
-    color: #ffffff; /* Cor do texto da descrição */
+    font-size: 60px; 
+    color: #ffffff; 
     
 }
 
 .product-old {
-    font-size: 25px; /* Tamanho da fonte da descrição */
-    color: #ffffff; /* Cor do texto da descrição */
+    font-size: 25px; 
+    color: #ffffff; 
     margin-top: 50px;
     text-decoration: line-through;
 }
@@ -59,25 +59,25 @@
 }
 
 .add-to-cart {
-    background-color: #00cfff; /* Cor de fundo do botão */
-    color: #fff; /* Cor do texto do botão */
-    border: none; /* Sem borda */
-    border-radius: 4px; /* Bordas arredondadas */
-    padding: 10px 16px; /* Espaçamento interno */
-    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
-    text-align: center; /* Alinhar o texto ao centro */
-    display: block; /* Exibir como bloco */
-    width: 50%; /* Botão ocupa toda a largura do card */
+    background-color: #00cfff; 
+    color: #fff; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 10px 16px; 
+    cursor: pointer; 
+    text-align: center;
+    display: block; 
+    width: 50%; 
     height: 60px;
     margin-top: 60px;
     font-size: 20px;
-    transition: transform 0.2s; /* Transição suave ao passar o mouse */
+    transition: transform 0.2s; 
     text-decoration: none;
 }
 
 .add-to-cart:hover {
-    background-color: #0099cc; /* Cor de fundo ao passar o mouse */
-    transform: scale(1.1); /* Aumenta o tamanho do card ao passar o mouse */
+    background-color: #0099cc; 
+    transform: scale(1.1); 
 }
 
 .estoque {
