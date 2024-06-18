@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    height: 900px;
+    width: 100%;
+  }
+  
+  .text-sing {
+    position: relative;
+    color: #fff;
+    margin-top: 100px;
+    font: 800 28px Inter, sans-serif;
+  }
+  
+  .card-log {
+    position: relative;
+    border-radius: 4px;
+    background-color: #181a21;
+    display: flex;
+    margin-top: 50px;
+    width: 707px;
+    max-width: 100%;
+    justify-content: center;
+    padding: 24px 32px;
+    height: auto;
+  }
+  
+  .text-sing2 {
+    color: #afafaf;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+    font: 500 12px Inter, sans-serif;
+  }
+  
+  .text-pass {
+    color: #afafaf;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+    margin-top: 13px;
+    font: 400 12px Inter, sans-serif;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  input {
+    color: #fff;
+    font: 400 16px Inter, sans-serif;
+    background-color: #32353c;
+    border-radius: 2px;
+    border-color: rgba(50, 53, 60, 1);
+    border-style: solid;
+    border-width: 1px;
+    padding: 13px 16px 14px;
+    margin-top: 4px;
+    width: 400px;
+    max-width: 100%;
+    height: 39px;
+  }
+  
+  .button-sign {
+    align-items: center;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #06bfff 0%, #2d73ff 100%);
+    align-self: center;
+    margin-top: 12px;
+    width: 400px;
+    max-width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 13px 60px 14px;
+    font: 400 16px Inter, sans-serif;
+    cursor: pointer;
+  }
+  
+  
+  
