@@ -1,0 +1,139 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+.carrinho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    gap: 20px;
+}
+
+.coluna1 {
+    height: 500px;
+}
+
+.carrinho-text {
+    font-size: 25px;
+    color: #fff;
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 100px;
+
+}
+
+.info {
+    width: 360px;
+    height: 170px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imagem {
+    width: 200px;
+    height: 160px;
+    margin-top: 15px;
+    margin-left: 15px;
+
+}
+
+.imagem > img {
+    width: 200px;
+    height: 94px;
+    border-radius: 4px;
+}
+
+.nome {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.preco {
+    font-size: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+}
+
+.plataform {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 35px;
+
+}
+
+.remover {
+    font-size: 15px;
+    color: #afafaf;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: underline;
+}
+
+.product-carrinho {
+    width: 615px;
+    height: 171px;
+    background-color: #171D25;
+    border-radius: 4px;
+    margin-bottom: 50px;
+    display: flex;
+    gap: 30px;
+}
+
+.preco-final {
+    width: 310px;
+    height: 150px;
+    background-color: #171D25;
+    border-radius: 4px;
+    margin-bottom: 63px;
+    display: flex;
+    
+}
+
+.preco-f{
+    font-size: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 90px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.info-f {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-pay {
+    align-items: center;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #06bfff 0%, #2d73ff 100%);
+    align-self: center;
+    margin-top: 12px;
+    width: 300px;
+    max-width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px 5px;
+    font: 400 16px Inter, sans-serif;
+    cursor: pointer;
+    margin-top: 60px;
+    margin-left: 6px;
+  }
+
+    .button-pay:hover {
+        background: linear-gradient(90deg, #2d73ff 0%, #06bfff 100%);
+    }
+
+.space {
+    height: 400px;
+}

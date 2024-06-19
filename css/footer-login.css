@@ -39,6 +39,11 @@
     color: #fff;
     cursor: pointer;
   }
+
+  .button-create:hover {
+    background: linear-gradient(90deg, #2d73ff 0%, #06bfff 100%);
+}
+
   .text-decorat {
     align-self: start;
     display: flex;

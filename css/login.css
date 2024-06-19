@@ -107,4 +107,6 @@ input {
   cursor: pointer;
 }
 
-
+.button-sign:hover {
+  background: linear-gradient(90deg, #2d73ff 0%, #06bfff 100%);
+}
