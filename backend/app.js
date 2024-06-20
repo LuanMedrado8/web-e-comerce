@@ -8,13 +8,10 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-
 app.use(express.static(path.join(__dirname, '..', 'view')));
 
 
 
-app.use('/auth', authRoutes);
 
 
 app.get('/', (req, res) => {
@@ -49,6 +46,7 @@ app.get('/xbox-page', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'view', 'xbox-page.html'));
 });
 
+app.use('/auth', authRoutes);
 
 pool
   .query('SELECT NOW()')

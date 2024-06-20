@@ -5,7 +5,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
 // Rota de cadastro
-router.post('../../view/cadastro', async (req, res) => {
+router.post('/registro', async (req, res) => {
     body('userName').notEmpty().withMessage('Nome de usuário é obrigatório'),
     body('email').isEmail().withMessage('Email inválido'),
     body('password').isLength({ min: 6 }).withMessage('Senha deve ter no mínimo 6 caracteres'),
@@ -17,7 +17,7 @@ router.post('../../view/cadastro', async (req, res) => {
         return res.status(400).json({ errors: errors.array() });
       }
   
-      const { userName, email, password, birthDate, phone } = req.body;
+      const { userName, email, password, dataNascimento, telefone } = req.body;
   
       try {
         // Verificar se o email já existe
@@ -27,7 +27,7 @@ router.post('../../view/cadastro', async (req, res) => {
         }
   
         // Criar o usuário (com todos os atributos)
-        const user = await User.createUser(userName, email, password, birthDate, phone);
+        const user = await User.createUser(userName, email, password, dataNascimento, telefone);
         res.status(201).json({ message: 'Usuário criado com sucesso', user });
       } catch (err) {
         console.error(err);
