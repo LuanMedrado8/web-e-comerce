@@ -42,7 +42,7 @@ body {
   border: 1px solid #fff;
   background-color: #171d25;
   justify-content: flex-start;
-  margin-left: 20px;
+  
   border-radius: 10px;
   display: flex;
   padding: 10px;
@@ -69,6 +69,11 @@ body {
   margin-bottom: 5px;
 }
 
+.info {
+padding: 16px;
+
+}
+
 .plataform {
   font-size: 20px;
   color: #fff;
@@ -88,7 +93,8 @@ body {
   border: 1px solid #fff;
   background-color: #171d25;
   justify-content: flex-end;
-  margin-left: 20px;
+
+ 
   border-radius: 10px;
   display: flex;
   padding: 10px;
@@ -162,4 +168,22 @@ footer {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+
+@media(max-width: 500px){
+  .imagem > img {
+    width: 160px;
+    height: 180px;
+    border-radius: 10px;
+  }
+  
+
+  .coluna1 {
+    width: 300px;
+    width: 100%;
+  }
+
+ 
+  
 }
