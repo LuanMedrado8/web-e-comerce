@@ -89,6 +89,10 @@
     gap: 30px;
 }
 
+.coluna2 {
+    height: 100%;
+}
+
 .preco-final {
     width: 310px;
     height: 150px;
@@ -96,7 +100,7 @@
     border-radius: 4px;
     margin-bottom: 63px;
     display: flex;
-    
+    margin-top: 95px;
 }
 
 .preco-f{
