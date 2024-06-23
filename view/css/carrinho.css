@@ -4,12 +4,15 @@
     box-sizing: border-box;
   }
   
-.carrinho {
+.cart {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 80%;
     height: 500px;
     gap: 20px;
+    border: solid 2px red;
+    margin: auto;
 }
 
 .coluna1 {
@@ -21,7 +24,7 @@
     color: #fff;
     display: flex;
     margin-bottom: 15px;
-    margin-top: 100px;
+    margin-top: 50px;
 
 }
 
