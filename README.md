@@ -46,8 +46,10 @@ O projeto Jedi Shop Gamer está organizado da seguinte forma:
     - Conexão com o banco de dados PostgreSQL
     - Rotas da API (Node.js)
     - Validações de dados
-    - Lógica de negócio (processamento de pedidos, gerenciamento de estoque, etc.)<br>
--Pasta views: Contém os arquivos relacionados à interface do usuário:
+    - Lógica de negócio (processamento de pedidos, gerenciamento de estoque, etc.)
+      <br>
+      
+- Pasta views: Contém os arquivos relacionados à interface do usuário: <br>
     - Páginas HTML
     - Estilos CSS
     - Scripts JavaScript (interação com a API, animações, etc.)
