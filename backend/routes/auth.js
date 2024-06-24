@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-const User = require('../models/User');
+const { User, getUserByUserName } = require('../models/User');
 const jwt = require('jsonwebtoken');
-
 
 router.post('/registro', [
     body('userName').notEmpty().withMessage('Nome de usuário é obrigatório'),
@@ -17,7 +16,7 @@ router.post('/registro', [
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { userName, email, password, dataNascimento, telefone } = req.body;
+    const { userName, password, email, dataNascimento, telefone } = req.body;
 
     try {
         // Verificar se o email já existe
@@ -26,8 +25,13 @@ router.post('/registro', [
             return res.status(400).json({ error: 'Email já cadastrado' });
         }
 
+        const existingUserName = await User.getUserByUserName(userName);
+        if (existingUserName) {
+            return res.status(400).json({ error: 'Nome de usuário já cadastrado' });
+        }
+
         // Criar o usuário
-        const user = await User.createUser(userName, email, password, dataNascimento, telefone);
+        const user = await User.createUser(userName, password, email, dataNascimento, telefone);
         res.status(201).json({ message: 'Usuário criado com sucesso', user });
     } catch (err) {
         console.error(err);
@@ -35,8 +39,27 @@ router.post('/registro', [
     }
 });
 
+router.post('/login', async (req, res) => {
+    const { userName, password } = req.body;
 
-router.post('/login', async (req, res) => {  
+    try {
+        const user = await getUserByUserName(userName);
+        if (!user) {
+            return res.status(400).json({ error: 'Usuário não encontrado' });
+        }
+
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) {
+            return res.status(400).json({ error: 'Senha inválida' });
+        }
+
+        // Gerar um token JWT
+        const token = jwt.sign({ userId: user.userName }, 'seu_segredo_jwt', { expiresIn: '1h' });
+        res.status(200).json({ message: 'Login bem-sucedido', token });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao fazer login' });
+    }
 });
 
 module.exports = router;
