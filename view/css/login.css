@@ -78,6 +78,18 @@ input {
   height: 20px;
   padding: 3px;
 }
+
+#rememberMe {
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  margin-bottom: 4px;
+}
+
 .img-2 {
   aspect-ratio: 1;
   object-fit: auto;

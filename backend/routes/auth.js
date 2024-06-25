@@ -40,7 +40,7 @@ router.post('/registro', [
 });
 
 router.post('/login', async (req, res) => {
-    const { userName, password } = req.body;
+    const { userName, password, rememberMe } = req.body;
 
     try {
         const user = await getUserByUserName(userName);
@@ -55,6 +55,11 @@ router.post('/login', async (req, res) => {
 
         // Gerar um token JWT
         const token = jwt.sign({ userId: user.userName }, 'seu_segredo_jwt', { expiresIn: '1h' });
+
+        if (rememberMe) {
+            res.cookie('jwt', token, { httpOnly: true, maxAge: 7 * 24 * 60 * 60 * 1000 }); // 7 dias
+        }
+
         res.status(200).json({ message: 'Login bem-sucedido', token });
     } catch (err) {
         console.error(err);
