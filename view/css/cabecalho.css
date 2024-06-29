@@ -72,5 +72,22 @@
     margin-right: 40px;
     
   }
+
+  .image-perfil {
+    display: none;
+  }
   
+  .image-perfil img {
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 40px;
+    border-radius: 50%;
+    
+  }
+  .image-perfil alt {
+    border-radius: 0%;
+  }
   
