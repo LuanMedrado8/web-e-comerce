@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('productName').textContent = product.productName;
             document.getElementById('oldPrice').textContent = product.oldPrice;
             document.getElementById('price').textContent = product.price;
+            document.getElementById('plataform').textContent = product.plataform;
             document.getElementById('imagemUrl').src = product.imagemUrl;
         } else {
             console.error('Erro ao buscar produto:', response.statusText);
