@@ -24,7 +24,7 @@
            <a href="/nintendo-page"><img class="nintendo" src="https://logosmarcas.net/wp-content/uploads/2020/11/Nintendo-Logo-2006-2016.png" alt="logo nintendo"></a> 
           </div>
           <div class="login">
-            <a href="/login">Login</a>
+            <a href="/perfil">Login</a>
           </div>
           <a href="/carrinho" class="carrinho">
             <img class="img-carrinho" src="https://cdn-icons-png.flaticon.com/512/5381/5381441.png" alt="carrinho">
@@ -98,7 +98,7 @@
           <h3 class="product-title">Suicide Squad: Kill the Justice League</h3>
           <p class="product-old">R$ 300,00</p>
           <p class="product-description">R$ 150,00</p>
-          <a href="/paginaJogo"><button class="add-to-cart">Saiba Mais</button></a>
+          <a onclick="levarParaPagina('2')" href="/paginaJogo"><button class="add-to-cart">Saiba Mais</button></a>
       </div>
   </div>
   <div class="product-card">
@@ -107,7 +107,7 @@
           <h3 class="product-title">Alan Wake II</h3>
           <p class="product-old">R$ 300,00</p>
           <p class="product-description">R$ 150,00</p>
-          <button class="add-to-cart">Saiba Mais</button>
+          <a onclick="levarParaPagina('3')" href="/paginaJogo"><button class="add-to-cart">Saiba Mais</button></a>
       </div>
   </div>
   <div class="product-card">
@@ -116,7 +116,7 @@
           <h3 class="product-title">The Last of Us Part II</h3>
           <p class="product-old">R$ 300,00</p>
           <p class="product-description">R$ 150,00</p>
-          <button class="add-to-cart">Saiba Mais</button>
+          <a onclick="levarParaPagina('4')" href="/paginaJogo"><button class="add-to-cart">Saiba Mais</button></a>
       </div>
   </div>
   <div class="product-card">
@@ -125,7 +125,7 @@
           <h3 class="product-title">Mário vs Donkey Kong</h3>
           <p class="product-old">R$ 300,00</p>
           <p class="product-description">R$ 150,00</p>
-          <button class="add-to-cart">Saiba Mais</button>
+          <a onclick="levarParaPagina('5')" href="/paginaJogo"><button class="add-to-cart">Saiba Mais</button></a>
       </div>
   </div>
 </div>
@@ -143,7 +143,7 @@
                 <h3 class="product-title-l">Grand Theft Auto V</h3>
                 <p class="product-old-l">R$ 300,00</p>
                 <p class="product-description-l">R$ 150,00</p>
-                <a href="/paginaJogo"><button class="add-to-cart-l">Saiba Mais</button></a>
+                <a onclick="levarParaPagina('6')" href="/paginaJogo"><button class="add-to-cart">Saiba Mais</button></a>
             </div>
         </div>
         <div class="qualquer">
@@ -153,7 +153,7 @@
                     <h3 class="product-title">Forza Horizon 5</h3>
                     <p class="product-old-l">R$ 300,00</p>
                     <p class="product-description-l">R$ 150,00</p>
-                    <button class="add-to-cart-l">Saiba Mais</button>
+                    <a onclick="levarParaPagina('8')" href="/paginaJogo"><button class="add-to-cart">Saiba Mais</button></a>
                 </div>
             </div>
             <div class="product-card-lu">
@@ -162,7 +162,7 @@
                     <h3 class="product-title">Mario Kart Deluxe 8</h3>
                     <p class="product-old-l">R$ 300,00</p>
                     <p class="product-description-l">R$ 150,00</p>
-                    <button class="add-to-cart-l">Saiba Mais</button>
+                    <a onclick="levarParaPagina('9')" href="/paginaJogo"><button class="add-to-cart">Saiba Mais</button></a>
                 </div>
             </div>
         </div>
@@ -196,5 +196,5 @@
   </footer>
 
   <script src="/js/home.js"></script>
- 
+  <script src="/js/card.js"></script>
 </html>

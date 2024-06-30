@@ -27,7 +27,7 @@
             <a href="/login">Login</a>
           </div>
           <div class="image-perfil" id="image-perfil">
-            <a href="/paginaPerfil">
+            <a href="/perfil">
                 <img class="img-perfil" src="" alt="Página perfil">
             </a>
           </div>
@@ -40,8 +40,8 @@
 
 
 <div class="perfil">
-    <div class="imagemPerfil">
-        <img src="https://media-gru2-1.cdn.whatsapp.net/v/t61.24694-24/417042968_1127116025156380_5112592322435726729_n.jpg?ccb=11-4&oh=01_Q5AaIPVSmprUiecCGZTlnn0cF0Cc5jizjeVYoxMOAGiFkxFw&oe=668D0484&_nc_sid=e6ed6c&_nc_cat=106" alt="Imagem de perfil">
+    <div class="imagemPerfil" >
+        <img id="imagem-perfil" src="https://media-gru2-1.cdn.whatsapp.net/v/t61.24694-24/417042968_1127116025156380_5112592322435726729_n.jpg?ccb=11-4&oh=01_Q5AaIPVSmprUiecCGZTlnn0cF0Cc5jizjeVYoxMOAGiFkxFw&oe=668D0484&_nc_sid=e6ed6c&_nc_cat=106" alt="Imagem de perfil">
     </div>
     <div class="perfil-content">
         <div class="perfil-section">
@@ -49,19 +49,19 @@
             <div class="perfil-info">
                 <div class="perfil-info-item">
                     <span class="titulo">Nome de usuário:</span>
-                    <p>luanMedrado8</p>
+                    <span id="userName">luanMedrado8</span>
                 </div>
                 <div class="perfil-info-item">
-                    <span class="titulo">E-mail:</spna>
-                    <p>medradoluan6@gmail.com</p>
+                    <span class="titulo">E-mail:</span>
+                    <span id="email">medradoluan6@gmail.com</span>
                 </div>
                 <div class="perfil-info-item">
-                    <span class="titulo">Data de nascimento:</spna>
-                    <p>03/11/2003</p>
+                    <span class="titulo">Data de nascimento:</span>
+                    <span id="dataNascimento">03/11/2003</span>
                 </div>
                 <div class="perfil-info-item">
-                    <span class="titulo">Telefone:</spna>
-                    <p>(61)99908-5756</p>
+                    <span class="titulo">Telefone:</span>
+                    <span id="telefone">(61)99908-5756</span>
                 </div>
             </div>
         </div>
@@ -95,7 +95,7 @@
     </div>
 </div>    
 
-<script src="./js/perfil.js"></script>
+
 
 <footer class="footer">
   <div class="footer-content">
@@ -122,6 +122,6 @@
       &copy; 2024 Jedi Shop Gamer | Todos os direitos reservados
   </div>
 </footer>
-
+<script src="./js/perfil.js"></script>
 </body>
 </html>

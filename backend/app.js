@@ -46,6 +46,10 @@ app.get('/xbox-page', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'view', 'xbox-page.html'));
 });
 
+app.get('/perfil', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'view', 'paginaPerfil.html'));
+});
+
 app.use('/auth', authRoutes);
 
 pool

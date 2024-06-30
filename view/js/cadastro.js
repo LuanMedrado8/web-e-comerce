@@ -6,6 +6,7 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
     const email = document.getElementById('email').value;
     const dataNascimento = document.getElementById('dataNascimento').value;
     const telefone = document.getElementById('telefone').value;
+    const imagem = document.getElementById('imagem').files[0];
 
     if (!validarTelefone(telefone)) {
       alert('Número de telefone inválido. Use o formato: (XX)XXXXX-XXXX');
@@ -18,7 +19,7 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ userName, password, email, dataNascimento, telefone })
+      body: JSON.stringify({ userName, password, email, dataNascimento, telefone, imagem})
     });
   
     if (response.ok) {

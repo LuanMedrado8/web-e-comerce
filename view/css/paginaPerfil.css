@@ -24,14 +24,17 @@
     border-radius: 50%;
 }
 
-.perfil-section h2 {
-    font-size: 30px;
+h2 {
     color: #fff;
-    ;
+    font-size: 30px;
+    margin-top: 20px;
+
 }
 
 .perfil-info-item {
     margin-top: 20px;
+    font-size: 20px;
+    color: #fff;
 }
 
 .perfil-section p {

@@ -15,6 +15,9 @@ document.getElementById('login_form').addEventListener('submit', async (event) =
     });
 
     if (response.ok) {
+      
+        sessionStorage.setItem('userName', userName);
+        sessionStorage.setItem('imagem', imagem);
         window.location.href = '/';
       } else {
         const errorData = await response.json();

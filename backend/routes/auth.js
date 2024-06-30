@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-const { User, getUserByUserName } = require('../models/User');
+const { User, createUser, getUserByEmail, getUserByUserName } = require('../models/User');
+const { Product, getProductByProductId } = require('../models/Product');
 const jwt = require('jsonwebtoken');
+const upload = require('../middlewares/upload');
 
-router.post('/registro', [
+router.post('/registro', upload.single('imagem'), [
     body('userName').notEmpty().withMessage('Nome de usuário é obrigatório'),
     body('email').isEmail().withMessage('Email inválido'),
     body('password').isLength({ min: 6 }).withMessage('Senha deve ter no mínimo 6 caracteres'),
@@ -17,21 +19,22 @@ router.post('/registro', [
     }
 
     const { userName, password, email, dataNascimento, telefone } = req.body;
+    const imageUrl = req.file ? req.file.path : null;
 
     try {
         // Verificar se o email já existe
-        const existingUser = await User.getUserByEmail(email);
+        const existingUser = await getUserByEmail(email);
         if (existingUser) {
             return res.status(400).json({ error: 'Email já cadastrado' });
         }
 
-        const existingUserName = await User.getUserByUserName(userName);
+        const existingUserName = await getUserByUserName(userName);
         if (existingUserName) {
             return res.status(400).json({ error: 'Nome de usuário já cadastrado' });
         }
 
         // Criar o usuário
-        const user = await User.createUser(userName, password, email, dataNascimento, telefone);
+        const user = await createUser(userName, password, email, dataNascimento, telefone, imageUrl);
         res.status(201).json({ message: 'Usuário criado com sucesso', user });
     } catch (err) {
         console.error(err);
@@ -64,6 +67,37 @@ router.post('/login', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Erro ao fazer login' });
+    }
+});
+
+router.get('/user/:id', async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const user = await getUserByUserName(userId);
+        if (!user) {
+            return res.status(404).json({ error: 'Usuário não encontrado' });
+        }
+        res.status(200).json(user);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao buscar usuário' });
+    }
+});
+
+router.get('/product/:id', async (req, res) => {
+    const productId = req.params.id;
+
+
+    try {
+        const product = await getProductByProductId(productId);
+        if (!product) {
+            return res.status(404).json({ error: 'Produto não encontrado' });
+        }
+        res.status(200).json(product);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao buscar produto' });
     }
 });
 
