@@ -24,5 +24,44 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 });
 
+document.querySelector('.add-to-cart').addEventListener('click', function(event) {
+    event.preventDefault(); 
+  
+    const productId = sessionStorage.getItem('productId'); 
+    const quantidade = document.getElementById('quantidade').value; // Capturar quantidade selecionada
+    const userName = sessionStorage.getItem('userName');
+  
+    
+    const data = {
+      productId: productId,
+      quantity: parseInt(quantidade),
+      userName: userName
+    };
+  
+    console.log(data);
 
+    fetch('http://localhost:3000/auth/adicionar-ao-carrinho', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erro ao adicionar produto ao carrinho');
+      }
+      return response.json();
+    })
+    .then(data => {
+    
+      alert('Produto adicionado ao carrinho com sucesso:', data);
+      
+    })
+    .catch(error => {
+      alert('Erro ao adicionar produto ao carrinho:', error.message);
+      
+    });
+  });
+  
 

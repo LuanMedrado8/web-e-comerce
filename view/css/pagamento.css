@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.pagamento {
+    margin: auto;
+    width: 60%;
+    height: 500px;
+    margin-top: 100px;
+    background-color: #181a21;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.info {
+    color: #fff;
+    margin: 20px 0;
+    margin-bottom: 100px;
+}
+
+.info h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.info p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#card-element {
+    margin: auto;
+    color: #fff;
+    background-color: #323746;
+    padding: 10px 12px;
+    border-radius: 4px;
+}
+
+.pagar {
+    background-color: #00cfff; 
+    color: #fff; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 10px 16px; 
+    cursor: pointer; 
+    text-align: center;
+    display: block; 
+    width: 20%; 
+    height: 60px;
+    margin: 20px auto;
+    font-size: 20px;
+    transition: transform 0.2s; 
+    text-decoration: none;
+}
+
+.pagar:hover {
+    background-color: #0099cc; 
+    transform: scale(1.1); 
+}
+
+.StripeElement {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #323746;
+    color: #fff;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+    border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}

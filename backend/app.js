@@ -50,6 +50,14 @@ app.get('/perfil', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'view', 'paginaPerfil.html'));
 });
 
+app.get('/pagamento', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'view', 'pagamento.html'));
+});
+
+app.get('/confirmacao', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'view', 'compraFinalizada.html'));
+});
+
 app.use('/auth', authRoutes);
 
 pool

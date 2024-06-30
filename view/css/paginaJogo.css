@@ -89,3 +89,11 @@
 .space {
     height: 400px;
 }
+
+#quantidade {
+    width: 150px;
+    height: 60px;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: start;
+}

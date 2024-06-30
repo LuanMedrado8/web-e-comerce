@@ -5,6 +5,8 @@ const { User, createUser, getUserByEmail, getUserByUserName } = require('../mode
 const { Product, getProductByProductId } = require('../models/Product');
 const jwt = require('jsonwebtoken');
 const upload = require('../middlewares/upload');
+const stripe = require('../middlewares/stripe');
+const { carrinho, getItembyProductId, createItemCarrinho, atualizarItemCarrinho } = require('../models/carrinho');
 
 router.post('/registro', upload.single('imagem'), [
     body('userName').notEmpty().withMessage('Nome de usuário é obrigatório'),
@@ -69,6 +71,45 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ error: 'Erro ao fazer login' });
     }
 });
+
+router.post('/create-payment-intent', async (req, res) => {
+    const { amount, currency, paymentMethodType } = req.body;
+  
+    try {
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount,
+        currency,
+        payment_method_types: [paymentMethodType],
+      });
+  
+      res.status(201).send({
+        clientSecret: paymentIntent.client_secret,
+      });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  router.post('/adicionar-ao-carrinho', async (req, res) => {
+    const { productId, quantidade, userName  } = req.body;
+  
+    try {
+      // Verificar se o produto já está no carrinho do usuário
+      const itemCarrinho = await getItembyProductId(productId);
+        if (itemCarrinho) {
+            console.log(itemCarrinho);
+            itemCarrinho.quantity += quantidade;
+            console.log(itemCarrinho.quantity);
+            await atualizarItemCarrinho(itemCarrinho.quantity, productId);
+        } else {
+            const novoItem = await createItemCarrinho(productId, quantidade, userName);
+            res.status(200).json({ message: 'Produto adicionado ao carrinho com sucesso', novoItem});
+        }
+    } catch (error) {
+      console.error('Erro ao adicionar produto ao carrinho:', error);
+      res.status(500).json({ error: 'Erro interno ao processar a requisição' });
+    }
+  });
 
 router.get('/user/:id', async (req, res) => {
     const userId = req.params.id;
