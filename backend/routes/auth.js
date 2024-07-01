@@ -6,7 +6,7 @@ const { Product, getProductByProductId } = require('../models/Product');
 const jwt = require('jsonwebtoken');
 const upload = require('../middlewares/upload');
 const stripe = require('../middlewares/stripe');
-const { carrinho, createItemCarrinho, getCarrinho } = require('../models/carrinho');
+const { carrinho, createItemCarrinho, getCarrinho, removeProductFromCart, removeCart } = require('../models/carrinho');
 
 router.post('/registro', upload.single('imagem'), [
     body('userName').notEmpty().withMessage('Nome de usuário é obrigatório'),
@@ -146,6 +146,24 @@ router.delete('/remover-do-carrinho/:id', async (req, res) => {
         }
     } catch (error) {
         console.error('Erro ao remover produto do carrinho:', error);
+        res.status(500).json({ error: 'Erro interno ao processar a requisição' });
+    }
+});
+
+router.delete('/removerCarrinho/:id', async (req, res) => {
+    const userName = req.params.id;
+    console.log(userName);
+
+    try {
+        const response = await carrinho.removeCart(userName);
+        console.log(response);
+        if (response) {
+            res.status(200).json({ message: 'Carrinho removido com sucesso' });
+        } else {
+            res.status(404).json({ error: 'Carrinho não encontrado' });
+        }
+    } catch (error) {
+        console.error('Erro ao remover carrinho:', error);
         res.status(500).json({ error: 'Erro interno ao processar a requisição' });
     }
 });

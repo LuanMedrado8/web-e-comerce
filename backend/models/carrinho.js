@@ -19,11 +19,18 @@ static async createItemCarrinho(productId, userName) {
     const response = await pool.query('DELETE FROM carrinho WHERE product_id = $1', [productId]);
     return response.rowCount > 0;
   }
+
+  static async removeCart(userName) {
+    const response = await pool.query('DELETE FROM carrinho WHERE username = $1', [userName]);
+    return response.rowCount > 0;
+  }
   
 }
 
 module.exports = {
     carrinho,
     createItemCarrinho: carrinho.createItemCarrinho,
-    getCarrinho: carrinho.getCarrinho
+    getCarrinho: carrinho.getCarrinho,
+    removeProductFromCart: carrinho.removeProductFromCart,
+    removeCart: carrinho.removeCart
   };

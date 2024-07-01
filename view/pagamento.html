@@ -92,7 +92,23 @@
             if (error) {
                 console.error(error.message);
             } else if (paymentIntent.status === 'succeeded') {
+                userName = sessionStorage.getItem('userName');
+                try
+                { const removerCarrinho = await fetch(`http://localhost:3000/auth/removerCarrinho/${userName}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log(removerCarrinho);
+            if (removerCarrinho.ok) {
                 window.location.href = '/confirmacao';
+            } else {
+                console.error('Erro ao2 remover carrinho:', removerCarrinho.statusText);
+            }
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+        } 
             }
         });
     </script>
