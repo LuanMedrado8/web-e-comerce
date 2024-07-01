@@ -4,7 +4,6 @@ const { body, validationResult } = require('express-validator');
 const { User, createUser, getUserByEmail, getUserByUserName, findByUserNameAndUpdate, removeUser} = require('../models/User');
 const { Product, getProductByProductId } = require('../models/Product');
 const jwt = require('jsonwebtoken');
-const upload = require('../middlewares/upload');
 const stripe = require('../middlewares/stripe');
 const { carrinho, createItemCarrinho, getCarrinho, removeProductFromCart, removeCart } = require('../models/carrinho');
 const { createPedido, getPedidos} = require('../models/pedido');

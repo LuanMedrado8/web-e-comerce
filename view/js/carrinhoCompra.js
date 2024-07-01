@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log('Product IDs in cart:', productIds);
 
-        // 2. Para cada ID de produto, buscar as informações do produto
         for (const productId of productIds) {
             idProduct = productId.product_id;
             await fetchProductDetailsAndCreateCard(idProduct);
@@ -47,13 +46,13 @@ async function fetchProductDetailsAndCreateCard(productId) {
     }
 }
 
- // Função para criar o card do produto
+
  function createProductCard(product, productId) {
-    // Cria o contêiner do card do produto
+
     const card = document.createElement('div');
     card.className = 'product-carrinho';
 
-    // Cria o contêiner da imagem
+
     const imagemDiv = document.createElement('div');
     imagemDiv.className = 'imagem';
     const imagemJogo = document.createElement('img');
@@ -62,7 +61,7 @@ async function fetchProductDetailsAndCreateCard(productId) {
     imagemDiv.appendChild(imagemJogo);
     card.appendChild(imagemDiv);
 
-    // Cria o contêiner das informações
+
     const infoDiv = document.createElement('div');
     infoDiv.className = 'info';
 
@@ -94,13 +93,13 @@ async function fetchProductDetailsAndCreateCard(productId) {
     removerButton.textContent = 'Remover';
     removerButton.onclick = () => {
         removerProduto(productId, product.price);
-    }; ; // Adiciona a funcionalidade de remoção do card
+    }; 
     buttonDiv.appendChild(removerButton);
     infoDiv.appendChild(buttonDiv);
 
     card.appendChild(infoDiv);
 
-    // Adiciona o card ao contêiner de produtos
+
     const productContainer = document.getElementById('product-container');
     if (productContainer) {
         productContainer.appendChild(card);
