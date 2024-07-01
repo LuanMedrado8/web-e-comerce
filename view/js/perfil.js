@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('email').textContent = user.email;
             document.getElementById('dataNascimento').textContent = formatDate(user.dataNascimento);
             document.getElementById('telefone').textContent = user.telefone;
-            document.getElementById('imagem-perfil').src = './assets/do-utilizador.png';
+            
         } else {
             console.error('Erro ao buscar perfil do usuário:', response.statusText);
         }
@@ -87,3 +87,30 @@ const userName = sessionStorage.getItem('userName');
         }
     });
 
+    document.addEventListener('DOMContentLoaded', async () => {
+        const photoUser = document.getElementById('imagem-perfil');
+        const username = sessionStorage.getItem('userName'); // Supomos que você armazene o username no sessionStorage ao fazer login
+        const id = "vFrH132ECKUv6ZMMAlavcCLxGpV5BNWKZ08GaSy8ahg";
+        const url = `https://api.unsplash.com/photos/random?client_id=${id}&query=star-wars`;
+    
+        if (!username) {
+            console.error('Usuário não está logado.');
+            return;
+        }
+    
+        const storedImageUrl = sessionStorage.getItem(`profileImageUrl_${username}`);
+        
+        if (storedImageUrl) {
+            photoUser.src = storedImageUrl;
+        } else {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const imageUrl = data.urls.regular;
+                photoUser.src = imageUrl;
+                sessionStorage.setItem(`profileImageUrl_${username}`, imageUrl);
+            } catch (error) {
+                console.error('Erro ao buscar imagem:', error);
+            }
+        }
+    });

@@ -14,6 +14,7 @@ async function excluirPerfil() {
     }).then((response) => {
         if (response.ok) {
             sessionStorage.setItem('validation', false);
+            sessionStorage.removeItem(`profileImageUrl_${userName}`);
             sessionStorage.removeItem('userName');
             window.location.href = '/login';
         } else {
