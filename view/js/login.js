@@ -3,7 +3,7 @@ document.getElementById('login_form').addEventListener('submit', async (event) =
 
     const userName = document.getElementById('userName').value;
     const password = document.getElementById('password').value;
-    const rememberMe = document.getElementById('rememberMe').checked;
+
 
 
     const response = await fetch('http://localhost:3000/auth/login', {
@@ -11,7 +11,7 @@ document.getElementById('login_form').addEventListener('submit', async (event) =
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ userName, password, rememberMe })
+        body: JSON.stringify({ userName, password })
     });
 
     if (response.ok) {
