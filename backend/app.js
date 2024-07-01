@@ -58,6 +58,10 @@ app.get('/confirmacao', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'view', 'compraFinalizada.html'));
 });
 
+app.get('/editarPerfil', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'view', 'editarPerfil.html'));
+});
+
 app.use('/auth', authRoutes);
 
 pool

@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-const { User, createUser, getUserByEmail, getUserByUserName } = require('../models/User');
+const { User, createUser, getUserByEmail, getUserByUserName, findByUserNameAndUpdate} = require('../models/User');
 const { Product, getProductByProductId } = require('../models/Product');
 const jwt = require('jsonwebtoken');
 const upload = require('../middlewares/upload');
 const stripe = require('../middlewares/stripe');
 const { carrinho, createItemCarrinho, getCarrinho, removeProductFromCart, removeCart } = require('../models/carrinho');
 const { createPedido, getPedidos} = require('../models/pedido');
+const e = require('express');
 
-router.post('/registro', upload.single('imagem'), [
+router.post('/registro', [
     body('userName').notEmpty().withMessage('Nome de usuário é obrigatório'),
     body('email').isEmail().withMessage('Email inválido'),
     body('password').isLength({ min: 6 }).withMessage('Senha deve ter no mínimo 6 caracteres'),
@@ -22,7 +23,7 @@ router.post('/registro', upload.single('imagem'), [
     }
 
     const { userName, password, email, dataNascimento, telefone } = req.body;
-    const imageUrl = req.file ? req.file.path : null;
+    
 
     try {
         // Verificar se o email já existe
@@ -37,7 +38,7 @@ router.post('/registro', upload.single('imagem'), [
         }
 
         // Criar o usuário
-        const user = await createUser(userName, password, email, dataNascimento, telefone, imageUrl);
+        const user = await createUser(userName, password, email, dataNascimento, telefone);
         res.status(201).json({ message: 'Usuário criado com sucesso', user });
     } catch (err) {
         console.error(err);
@@ -209,6 +210,28 @@ router.get('/buscarPedidos/:id', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Erro ao buscar pedidos' });
+    }
+});
+
+router.put('/editarPerfil', [
+    body('userName').notEmpty().withMessage('Nome de usuário é obrigatório'),
+    body('email').isEmail().withMessage('Email inválido'),
+    body('password').isLength({ min: 6 }).withMessage('Senha deve ter no mínimo 6 caracteres'),
+    body('dataNascimento').isISO8601().withMessage('Data de nascimento inválida (formato ISO 8601)'),
+    body('telefone').isMobilePhone().withMessage('Número de telefone inválido')
+], async (req, res) => {
+    const { userName, password, email, dataNascimento, telefone, oldUserName } = req.body;
+
+    try {
+        const user = await User.findByUserNameAndUpdate(userName, password, email, dataNascimento, telefone, oldUserName );
+        console.log(user);
+        if (!user) {
+            return res.status(404).json({ error: 'Usuário não encontrado' });
+        }
+        res.status(200).json(user);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao atualizar usuário' });
     }
 });
 

@@ -39,21 +39,23 @@
 </header>
 
     <div class="nav">
-      <div class="text-sing">Cadastrar</div>
+      <div class="text-sing">Editar Perfil</div>
       <div class="card-log">
         <div class="det-log">             
               <div class="text-sing2">Escolha um nome de usuário</div>
               <form class="form" id="registerForm">
-                <input type="text" name="userName" id="userName" />
+                <input type="text" name="userName" id="userName" required />
                   <div class="text-pass">Escolha uma senha</div>
-                  <input type="password" name="password" id="password" />
+                  <input type="password" name="password" id="password" required />
+                  <div class="text-pass">Confirme a senha</div>
+                  <input type="password" name="password" id="confirmPassword" required />
                     <div class="text-pass">Insira seu e-mail</div>
-                    <input type="email" name="email" id="email" />
+                    <input type="email" name="email" id="email" required />
                     <div class="text-pass">Coloque sua data de nascimento</div>
-                    <input type="date" name="dataNascimento" id="dataNascimento" />
+                    <input type="date" name="dataNascimento" id="dataNascimento" required />
                     <div class="text-pass">Insira seu número de telefone</div>
-                    <input type="text" name="telefone" id="telefone" />
-                  <button class="button-sign">Cadastrar</button>
+                    <input type="text" name="telefone" id="telefone" required />
+                  <button class="button-sign">Editar</button>
                 </form>
         </div>
         </div>
@@ -85,7 +87,7 @@
         </div>
       </footer>
     
-    <script src="/js/cadastro.js"></script>
+    <script src="/js/editarPerfil.js"></script>
 
   </body>
 </html>
