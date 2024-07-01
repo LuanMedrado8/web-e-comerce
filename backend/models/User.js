@@ -66,6 +66,15 @@ class User {
     }
 }
 
+static async removeUser(userName) {
+    const result = await pool.query('DELETE FROM users WHERE username = $1 RETURNING *', [userName]);
+    const user = result.rows[0];
+    if (user) {
+        return new User(user.username, user.password, user.email, user.datanascimento, user.telefone);
+    }
+    return null;
+
+} 
 }
 
 module.exports = {
@@ -73,5 +82,6 @@ module.exports = {
   createUser: User.createUser,
   getUserByEmail: User.getUserByEmail,
   getUserByUserName: User.getUserByUserName,
-  findByUserNameAndUpdate: User.findByUserNameAndUpdate
+  findByUserNameAndUpdate: User.findByUserNameAndUpdate,
+  removeUser: User.removeUser
 };

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-const { User, createUser, getUserByEmail, getUserByUserName, findByUserNameAndUpdate} = require('../models/User');
+const { User, createUser, getUserByEmail, getUserByUserName, findByUserNameAndUpdate, removeUser} = require('../models/User');
 const { Product, getProductByProductId } = require('../models/Product');
 const jwt = require('jsonwebtoken');
 const upload = require('../middlewares/upload');
@@ -232,6 +232,21 @@ router.put('/editarPerfil', [
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Erro ao atualizar usuário' });
+    }
+});
+
+router.delete('/removerUsuario', async (req, res) => {
+    const userName = req.body.userName;
+
+    try {
+        const user = await User.removeUser(userName);
+        if (!user) {
+            return res.status(404).json({ error: 'Usuário não encontrado' });
+        }
+        res.status(200).json({ message: 'Usuário removido com sucesso' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao remover usuário' });
     }
 });
 
