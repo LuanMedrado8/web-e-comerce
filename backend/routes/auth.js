@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const upload = require('../middlewares/upload');
 const stripe = require('../middlewares/stripe');
 const { carrinho, createItemCarrinho, getCarrinho, removeProductFromCart, removeCart } = require('../models/carrinho');
+const { createPedido, getPedidos} = require('../models/pedido');
 
 router.post('/registro', upload.single('imagem'), [
     body('userName').notEmpty().withMessage('Nome de usuário é obrigatório'),
@@ -181,6 +182,33 @@ router.get('/product/:id', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Erro ao buscar produto' });
+    }
+});
+
+router.post('/criarPedido', async (req, res) => { 
+    const { userName, totalValue } = req.body;
+    try {
+        // Criar o pedido
+        const pedido = await createPedido(userName, totalValue);
+        res.status(201).json({ message: 'Pedido criado com sucesso', pedido });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao criar pedido' });
+    }
+});
+
+router.get('/buscarPedidos/:id', async (req, res) => {
+    const userName = req.params.id;
+
+    try {
+        const pedidos = await getPedidos(userName);
+        if (!pedidos) {
+            return res.status(404).json({ error: 'Pedidos não encontrados' });
+        }
+        res.status(200).json(pedidos);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao buscar pedidos' });
     }
 });
 

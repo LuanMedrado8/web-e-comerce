@@ -1,18 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
-    var isLoggedIn = sessionStorage.getItem('userName');
-    console.log(isLoggedIn)
-
-    var profileContainer = document.getElementById('image-perfil');
-    var loginText = document.getElementById('login');
-
-    if (isLoggedIn) {
-        loginText.style.display = 'none';
-        profileContainer.style.display = 'block';
-
-    }
-});
-
 document.addEventListener('DOMContentLoaded', async () => {
     const userId = getUserId(); // Supondo que você tenha uma forma de obter o ID do usuário
 
@@ -24,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('email').textContent = user.email;
             document.getElementById('dataNascimento').textContent = formatDate(user.dataNascimento);
             document.getElementById('telefone').textContent = user.telefone;
-            document.getElementById('imagem-perfil').src = user.imagem ? `data:image/png;base64,${user.imagem.toString('base64')}` : './assets/do-utilizador.png';
+            document.getElementById('imagem-perfil').src = './assets/do-utilizador.png';
         } else {
             console.error('Erro ao buscar perfil do usuário:', response.statusText);
         }
@@ -44,3 +29,60 @@ function formatDate(dateString) {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+const userName = sessionStorage.getItem('userName');
+        console.log(userName);
+    
+            try {
+                const response = await fetch(`http://localhost:3000/auth/buscarPedidos/${userName}`);
+                if (response.ok) {
+                    const pedidos = await response.json();
+                    console.log('Pedidos:', pedidos);
+                    displayPedidos(pedidos);
+                } else {
+                    console.error('Erro ao buscar pedidos:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Erro na requisição:', error);
+            }
+        
+        function displayPedidos(pedidos) {
+            const container = document.getElementById('pedidos-container');
+            pedidos.forEach(pedido => {
+                const pedidoDiv = document.createElement('div');
+                pedidoDiv.className = 'pedido';
+
+                const infoPedidoDiv = document.createElement('div');
+                infoPedidoDiv.className = 'info-pedido';
+
+                const numeroPedidoDiv = document.createElement('div');
+                numeroPedidoDiv.className = 'detalhe';
+                numeroPedidoDiv.innerHTML = `
+                    <h3>Número Pedido:</h3>
+                    <h3>${pedido.id}</h3>
+                `;
+
+                const tipoPagamentoDiv = document.createElement('div');
+                tipoPagamentoDiv.className = 'detalhe';
+                tipoPagamentoDiv.innerHTML = `
+                    <h3>Tipo de Pagamento:</h3>
+                    <h3>${pedido.metodo_pagamento}</h3>
+                `;
+
+                const valorTotalDiv = document.createElement('div');
+                valorTotalDiv.className = 'detalhe';
+                valorTotalDiv.innerHTML = `
+                    <h3>Valor Total:</h3>
+                    <h3>R$${parseFloat(pedido.totalvalue).toFixed(2)}</h3>
+                `;
+
+                infoPedidoDiv.appendChild(numeroPedidoDiv);
+                infoPedidoDiv.appendChild(tipoPagamentoDiv);
+                infoPedidoDiv.appendChild(valorTotalDiv);
+
+                pedidoDiv.appendChild(infoPedidoDiv);
+                container.appendChild(pedidoDiv);
+            });
+        }
+    });

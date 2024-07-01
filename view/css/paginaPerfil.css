@@ -62,13 +62,14 @@ h2 {
     flex-direction: column;
     gap: 20px;
     padding: 20px 8px;
-    height: 560px;
+    min-height: 100vh;
+    max-height: 100%;
   }
   
   .pedido {
     border: 1px solid #fff;
     background-color: #171d25;
-    margin-left: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
     display: flex;
     padding: 10px;
@@ -84,6 +85,10 @@ h2 {
     justify-content: space-between;
     color: #fff;
     font-size: 20px;
+}
+
+.footer {
+  height: 100%;
 }
 
 @media (max-width: 880px) {
