@@ -26,9 +26,15 @@
 }
 
 .info p {
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 20px;
 }
+
+.info span {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
 
 #card-element {
     margin: auto;

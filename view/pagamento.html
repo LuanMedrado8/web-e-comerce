@@ -37,7 +37,7 @@
                 <h1>Finalizar compra</h1>
                 <p>Insira os dados do seu cartão de crédito para finalizar a compra</p>
                 <p>Valor: </p>
-                <p>R$ 150,00</p>
+                <span id="valorPagamento">R$ 150,00</span>
             </div>            
             <form id="payment-form">
                 <div id="card-element"></div>
@@ -97,6 +97,12 @@
         });
     </script>
 
+    <script>
+        console.log(sessionStorage.getItem('totalValue'));
+        document.getElementById('valorPagamento').textContent =  `R$${sessionStorage.getItem('totalValue')}`;
+        
+    </script>
+
     <div class="space"></div>
 
     <footer class="footer">
@@ -124,6 +130,5 @@
             &copy; 2024 Jedi Shop Gamer | Todos os direitos reservados
         </div>
     </footer>
-    
 </body>
 </html>

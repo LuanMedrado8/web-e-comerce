@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     let totalValue = 0;
     document.getElementById('totalPrice').textContent = `R$${totalValue}`;
+    let total = sessionStorage.setItem('totalValue', totalValue);
 
     try{
     const userName = sessionStorage.getItem('userName');
@@ -35,6 +36,7 @@ async function fetchProductDetailsAndCreateCard(productId) {
             const product = await productResponse.json();
             totalValue += parseFloat(product.price);
             document.getElementById('totalPrice').textContent = `R$${totalValue}`;
+            total = sessionStorage.setItem('totalValue', totalValue);
             console.log('Product details:', product);
             createProductCard(product, productId);
         } else {
@@ -121,6 +123,7 @@ async function fetchProductDetailsAndCreateCard(productId) {
                 console.log(price)
                 totalValue -= parseFloat(price);
                 document.getElementById('totalPrice').textContent = `R$${totalValue}`;
+                total = sessionStorage.setItem('totalValue', totalValue);
             } else {
                 console.error('Erro ao remover produto do carrinho:', response.statusText);
             }
