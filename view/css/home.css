@@ -8,8 +8,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  border: solid 1px red;
 }
 
 .slider {
@@ -139,7 +137,6 @@
   background-color: #1b2838;
   width: 100%;
   height: 100%;
-  border: solid 1px red;
   padding: 20px;
 }
 
@@ -217,7 +214,6 @@
 }
 
 .cards-l {
-  border: solid 1px red;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -313,7 +309,6 @@ footer {
 }
 
 .footer-content {
-  border: solid 1px red;
   margin: 0;
   padding: 10px;
   word-wrap: break-word;

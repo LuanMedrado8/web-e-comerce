@@ -28,13 +28,11 @@ document.querySelector('.add-to-cart').addEventListener('click', function(event)
     event.preventDefault(); 
   
     const productId = sessionStorage.getItem('productId'); 
-    const quantidade = document.getElementById('quantidade').value; // Capturar quantidade selecionada
     const userName = sessionStorage.getItem('userName');
   
     
     const data = {
       productId: productId,
-      quantity: parseInt(quantidade),
       userName: userName
     };
   

@@ -6,7 +6,7 @@ const { Product, getProductByProductId } = require('../models/Product');
 const jwt = require('jsonwebtoken');
 const upload = require('../middlewares/upload');
 const stripe = require('../middlewares/stripe');
-const { carrinho, getItembyProductId, createItemCarrinho, atualizarItemCarrinho } = require('../models/carrinho');
+const { carrinho, createItemCarrinho, getCarrinho } = require('../models/carrinho');
 
 router.post('/registro', upload.single('imagem'), [
     body('userName').notEmpty().withMessage('Nome de usuário é obrigatório'),
@@ -91,20 +91,12 @@ router.post('/create-payment-intent', async (req, res) => {
   });
 
   router.post('/adicionar-ao-carrinho', async (req, res) => {
-    const { productId, quantidade, userName  } = req.body;
+    const { productId, userName  } = req.body;
   
     try {
-      // Verificar se o produto já está no carrinho do usuário
-      const itemCarrinho = await getItembyProductId(productId);
-        if (itemCarrinho) {
-            console.log(itemCarrinho);
-            itemCarrinho.quantity += quantidade;
-            console.log(itemCarrinho.quantity);
-            await atualizarItemCarrinho(itemCarrinho.quantity, productId);
-        } else {
-            const novoItem = await createItemCarrinho(productId, quantidade, userName);
-            res.status(200).json({ message: 'Produto adicionado ao carrinho com sucesso', novoItem});
-        }
+          const novoItem = await createItemCarrinho(productId, userName);
+          res.status(200).json({ message: 'Produto adicionado ao carrinho com sucesso', novoItem});
+
     } catch (error) {
       console.error('Erro ao adicionar produto ao carrinho:', error);
       res.status(500).json({ error: 'Erro interno ao processar a requisição' });
@@ -125,6 +117,21 @@ router.get('/user/:id', async (req, res) => {
         res.status(500).json({ error: 'Erro ao buscar usuário' });
     }
 });
+
+router.post('/buscar-carrinho', async (req, res) => {
+    const { userName } = req.body;
+
+    try {
+        const carrinho = await getCarrinho(userName);
+        if (!carrinho) {
+            return res.status(404).json({ error: 'Carrinho não encontrado' });
+        }
+        res.status(200).json(carrinho);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao buscar carrinho' });
+    }
+})
 
 router.get('/product/:id', async (req, res) => {
     const productId = req.params.id;
