@@ -133,6 +133,23 @@ router.post('/buscar-carrinho', async (req, res) => {
     }
 })
 
+router.delete('/remover-do-carrinho/:id', async (req, res) => {
+    const productId = req.params.id;
+    console.log(productId);
+
+    try {
+        const response = await carrinho.removeProductFromCart(productId);
+        if (response) {
+            res.status(200).json({ message: 'Produto removido do carrinho com sucesso' });
+        } else {
+            res.status(404).json({ error: 'Produto não encontrado no carrinho' });
+        }
+    } catch (error) {
+        console.error('Erro ao remover produto do carrinho:', error);
+        res.status(500).json({ error: 'Erro interno ao processar a requisição' });
+    }
+});
+
 router.get('/product/:id', async (req, res) => {
     const productId = req.params.id;
 

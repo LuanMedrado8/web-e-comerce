@@ -32,7 +32,7 @@ async function fetchProductDetailsAndCreateCard(productId) {
         if (productResponse.ok) {
             const product = await productResponse.json();
             console.log('Product details:', product);
-            createProductCard(product);
+            createProductCard(product, productId);
         } else {
             console.error('Erro ao buscar detalhes do produto:', productResponse.statusText);
         }
@@ -42,7 +42,7 @@ async function fetchProductDetailsAndCreateCard(productId) {
 }
 
  // Função para criar o card do produto
- function createProductCard(product) {
+ function createProductCard(product, productId) {
     // Cria o contêiner do card do produto
     const card = document.createElement('div');
     card.className = 'product-carrinho';
@@ -86,7 +86,9 @@ async function fetchProductDetailsAndCreateCard(productId) {
     const removerButton = document.createElement('button');
     removerButton.className = 'remover';
     removerButton.textContent = 'Remover';
-    removerButton.onclick = () => card.remove(); // Adiciona a funcionalidade de remoção do card
+    removerButton.onclick = () => {
+        removerProduto(productId);
+    }; ; // Adiciona a funcionalidade de remoção do card
     buttonDiv.appendChild(removerButton);
     infoDiv.appendChild(buttonDiv);
 
@@ -99,6 +101,28 @@ async function fetchProductDetailsAndCreateCard(productId) {
     } else {
         console.error('Contêiner de produtos não encontrado');
     }
+    
+    async function removerProduto(productId) {
+        console.log(productId);
+        try {
+            const response = await fetch(`http://localhost:3000/auth/remover-do-carrinho/${productId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (response.ok) {
+                card.remove();
+            } else {
+                console.error('Erro ao remover produto do carrinho:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+        }
+    };
+
+}
 
 
-}});
+});
