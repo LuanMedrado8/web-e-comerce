@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    
+    let totalValue = 0;
+    document.getElementById('totalPrice').textContent = `R$${totalValue}`;
+
     try{
     const userName = sessionStorage.getItem('userName');
     const cartResponse = await fetch('http://localhost:3000/auth/buscar-carrinho', {
@@ -31,6 +33,8 @@ async function fetchProductDetailsAndCreateCard(productId) {
         const productResponse = await fetch(`http://localhost:3000/auth/product/${productId}`);
         if (productResponse.ok) {
             const product = await productResponse.json();
+            totalValue += parseFloat(product.price);
+            document.getElementById('totalPrice').textContent = `R$${totalValue}`;
             console.log('Product details:', product);
             createProductCard(product, productId);
         } else {
@@ -87,7 +91,7 @@ async function fetchProductDetailsAndCreateCard(productId) {
     removerButton.className = 'remover';
     removerButton.textContent = 'Remover';
     removerButton.onclick = () => {
-        removerProduto(productId);
+        removerProduto(productId, product.price);
     }; ; // Adiciona a funcionalidade de remoção do card
     buttonDiv.appendChild(removerButton);
     infoDiv.appendChild(buttonDiv);
@@ -102,7 +106,7 @@ async function fetchProductDetailsAndCreateCard(productId) {
         console.error('Contêiner de produtos não encontrado');
     }
     
-    async function removerProduto(productId) {
+    async function removerProduto(productId, price) {
         console.log(productId);
         try {
             const response = await fetch(`http://localhost:3000/auth/remover-do-carrinho/${productId}`, {
@@ -114,6 +118,9 @@ async function fetchProductDetailsAndCreateCard(productId) {
     
             if (response.ok) {
                 card.remove();
+                console.log(price)
+                totalValue -= parseFloat(price);
+                document.getElementById('totalPrice').textContent = `R$${totalValue}`;
             } else {
                 console.error('Erro ao remover produto do carrinho:', response.statusText);
             }

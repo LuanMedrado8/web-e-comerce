@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             const product = await response.json();
             console.log(product);
             document.getElementById('productName').textContent = product.productName;
-            document.getElementById('oldPrice').textContent = product.oldPrice;
-            document.getElementById('price').textContent = product.price;
+            document.getElementById('oldPrice').textContent = `R$${product.oldPrice}`;
+            document.getElementById('price').textContent = `R$${product.price}`;
             document.getElementById('plataform').textContent = product.plataform;
             document.getElementById('imagemUrl').src = product.imagemUrl;
         } else {

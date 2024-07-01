@@ -1,5 +1,4 @@
 let count = 1;
-document.getElementById('radio1').checked = true;
 const totalSlides = document.querySelectorAll('.slide').length;
 
 setInterval( () => {
