@@ -1,7 +1,7 @@
 <h1 align="center">📝 Jedi Shop Gamer 📝</h1>
 <br>
 <br>
-<img src="./view/assets/Capa-jedi-shop" alt="capa do projeto" width="700"><br>
+<img src="./view/assets/Capa-jedi-shop" alt="capa do projeto" width="900"><br>
 <p align="center">
   <a href="#-descrição">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-objetivo">Objetivo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
