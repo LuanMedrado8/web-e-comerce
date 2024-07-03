@@ -3,7 +3,7 @@
 <br>
 
 
-<img src="./view/assets/Capa-jedi-shop.gif" alt="capa do projeto" width="1000"><br>
+<img src="./view/assets/Capa-jedi-shop.gif" alt="capa do projeto" width="1010"><br>
 <p align="center">
   <a href="#-descrição">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-objetivo">Objetivo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
