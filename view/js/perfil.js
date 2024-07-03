@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch(`http://localhost:3000/auth/user/${userId}`);
         if (response.ok) {
             const user = await response.json();
+            console.log(user);
             document.getElementById('userName').textContent = user.userName;
             document.getElementById('email').textContent = user.email;
             document.getElementById('dataNascimento').textContent = formatDate(user.dataNascimento);
@@ -32,13 +33,14 @@ function formatDate(dateString) {
 
 document.addEventListener('DOMContentLoaded', async () => {
 const userName = sessionStorage.getItem('userName');
-        console.log(userName);
+        
     
             try {
                 const response = await fetch(`http://localhost:3000/auth/buscarPedidos/${userName}`);
                 if (response.ok) {
                     const pedidos = await response.json();
                     console.log('Pedidos:', pedidos);
+                    
                     displayPedidos(pedidos);
                 } else {
                     console.error('Erro ao buscar pedidos:', response.statusText);

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (cartResponse.ok) {
         const productIds = await cartResponse.json();
 
-        console.log('Product IDs in cart:', productIds);
+        
 
         for (const productId of productIds) {
             idProduct = productId.product_id;
@@ -108,7 +108,6 @@ async function fetchProductDetailsAndCreateCard(productId) {
     }
     
     async function removerProduto(productId, price) {
-        console.log(productId);
         try {
             const response = await fetch(`http://localhost:3000/auth/remover-do-carrinho/${productId}`, {
                 method: 'DELETE',
@@ -119,15 +118,12 @@ async function fetchProductDetailsAndCreateCard(productId) {
     
             if (response.ok) {
                 card.remove();
-                console.log(price)
                 totalValue -= parseFloat(price);
                 document.getElementById('totalPrice').textContent = `R$${totalValue}`;
                 total = sessionStorage.setItem('totalValue', totalValue);
                 let cartProductIds = JSON.parse(sessionStorage.getItem('cartProductIds')) || [];
-                console.log(cartProductIds);
                 productId = String(productId);
                 cartProductIds = cartProductIds.filter(id => id !== productId);
-                console.log(cartProductIds);
                 sessionStorage.setItem('cartProductIds', JSON.stringify(cartProductIds));
             } else {
                 console.error('Erro ao remover produto do carrinho:', response.statusText);

@@ -13,7 +13,7 @@ async function excluirPerfil() {
         body: JSON.stringify({ userName }),
     }).then((response) => {
         if (response.ok) {
-            sessionStorage.setItem('validation', false);
+            localStorage.setItem('validation', false);
             sessionStorage.removeItem(`profileImageUrl_${userName}`);
             sessionStorage.removeItem('userName');
             window.location.href = '/login';

@@ -46,7 +46,7 @@ document.querySelector('.add-to-cart').addEventListener('click', function(event)
       userName: userName
     };
   
-    console.log(data);
+    
 
     fetch('http://localhost:3000/auth/adicionar-ao-carrinho', {
       method: 'POST',
