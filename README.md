@@ -1,6 +1,14 @@
 <h1 align="center">📝 Jedi Shop Gamer 📝</h1>
 <br>
 <br>
+
+<style>
+    img {
+        display:flex;
+        justify-content: center;
+    }
+</style>
+
 <img src="./view/assets/Capa-jedi-shop.jpeg" alt="capa do projeto" width="900"><br>
 <p align="center">
   <a href="#-descrição">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
