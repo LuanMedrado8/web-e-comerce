@@ -62,6 +62,10 @@ app.get('/editarPerfil', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'view', 'editarPerfil.html'));
 });
 
+app.get('/pedido', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'view', 'pedido.html'));
+});
+
 app.use('/auth', authRoutes);
 
 pool

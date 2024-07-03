@@ -123,6 +123,12 @@ async function fetchProductDetailsAndCreateCard(productId) {
                 totalValue -= parseFloat(price);
                 document.getElementById('totalPrice').textContent = `R$${totalValue}`;
                 total = sessionStorage.setItem('totalValue', totalValue);
+                let cartProductIds = JSON.parse(sessionStorage.getItem('cartProductIds')) || [];
+                console.log(cartProductIds);
+                productId = String(productId);
+                cartProductIds = cartProductIds.filter(id => id !== productId);
+                console.log(cartProductIds);
+                sessionStorage.setItem('cartProductIds', JSON.stringify(cartProductIds));
             } else {
                 console.error('Erro ao remover produto do carrinho:', response.statusText);
             }

@@ -105,6 +105,10 @@ h2 {
   margin-bottom: 10px;
 }
 
+.perfil-content a {
+  text-decoration: none;
+}
+
 .button:hover {
   background-color: #0099cc; 
 }

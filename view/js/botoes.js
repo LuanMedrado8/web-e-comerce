@@ -1,5 +1,5 @@
 function logout() {
-    sessionStorage.setItem('validation', false);
+    localStorage.setItem('validation', false);
     window.location.href = '/';
 }
 

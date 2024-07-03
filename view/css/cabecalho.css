@@ -7,6 +7,10 @@
   body {
     background-color: #1b2838;
   }
+
+  body a {
+    text-decoration: none;
+  }
   
   .navegacao {
     display: flex;
@@ -84,6 +88,7 @@
     gap: 10px;
     margin-right: 40px;
     border-radius: 50%;
+    object-fit: cover;
     
   }
   .image-perfil alt {

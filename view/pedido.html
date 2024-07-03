@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cabecalho.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/paginaPerfil.css">
+    <link rel="stylesheet" href="/css/cabecalho.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/carrinho.css">
     <title>Jedi Shop Gamer</title>
     <link rel="icon" type="image/x-icon" href="/assets/logo.icone.ico">
 </head>
@@ -23,63 +23,29 @@
             <a href="/xbox-page"><img class="xbox" src="https://www.kabum.com.br/hotsite/xboxseries/img/logo-xbox-series-x.png" alt="logo Xbox"></a> 
             <a href="/nintendo-page"><img class="nintendo" src="https://logosmarcas.net/wp-content/uploads/2020/11/Nintendo-Logo-2006-2016.png" alt="logo nintendo"></a> 
            </div>
-          <div class="login" id="login">
+           <div class="login" id="login">
             <a href="/login">Login</a>
           </div>
           <div class="image-perfil" id="image-perfil">
             <a href="/perfil">
-                <img class="img-perfil" id="photoPerfil" style="display:none;" src="./assets/do-utilizador.png" alt="Página perfil">
+              <img class="img-perfil" id="photoPerfil" style="display:none;" src="./assets/do-utilizador.png" alt="Página perfil">
             </a>
           </div>
-          <a href="/carrinho" class="carrinho">
+          <a href="/carrinho" class="box-pay">
             <img class="img-carrinho" src="https://cdn-icons-png.flaticon.com/512/5381/5381441.png" alt="carrinho">
           </a>
         </div>
 </header>
 
+<h3 class="carrinho-text">Carrinho de compras</h3>
+<div class="carrinho">
 
-
-<div class="perfil">
-    <div class="imagemPerfil" >
-        <img id="imagem-perfil" src="" alt="Imagem de perfil">
-    </div>
-    <div class="perfil-content">
-        <div class="perfil-section">
-            <h2>Informações do Perfil</h2>
-            <div class="perfil-info">
-                <div class="perfil-info-item">
-                    <span class="titulo">Nome de usuário:</span>
-                    <span id="userName">luanMedrado8</span>
-                </div>
-                <div class="perfil-info-item">
-                    <span class="titulo">E-mail:</span>
-                    <span id="email">medradoluan6@gmail.com</span>
-                </div>
-                <div class="perfil-info-item">
-                    <span class="titulo">Data de nascimento:</span>
-                    <span id="dataNascimento">03/11/2003</span>
-                </div>
-                <div class="perfil-info-item">
-                    <span class="titulo">Telefone:</span>
-                    <span id="telefone">(61)99908-5756</span>
-                </div>
-                <div class="buttons">
-                    <a href="/editarPerfil"><button class="button" id="editar-perfil">Editar perfil</button></a>
-                    <a onclick="excluirPerfil()"><button class="button" id="excluir-perfil">Excluir perfil</button></a>
-                    <a onclick="logout()"><button class="button" id="logout">Log out</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<h3 class="carrinho-text">Pedidos</h3>
-
-<div class="pedidos">
- <a href="/pedido"> <div class="coluna1" id="pedidos-container"></div> </a> 
+  <div class="coluna1" id="product-container"></div>
+  
 </div>
 
 
+<div class="space"></div>
 
 <footer class="footer">
   <div class="footer-content">
@@ -106,8 +72,7 @@
       &copy; 2024 Jedi Shop Gamer | Todos os direitos reservados
   </div>
 </footer>
-<script src="/js/perfil.js"></script>
+<script src="/js/carrinhoCompra.js"></script>
 <script src="/js/cabecalho.js"></script>
-<script src="/js/botoes.js"></script>
 </body>
 </html>

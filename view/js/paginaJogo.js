@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
+   
     const productId = getProductId(); 
 
     try {
@@ -26,9 +27,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 document.querySelector('.add-to-cart').addEventListener('click', function(event) {
     event.preventDefault(); 
+    if (localStorage.getItem('validation') === 'false'){
+      alert('Você precisa estar logado para adicionar um produto ao carrinho');
+      return;
+    }
   
     const productId = sessionStorage.getItem('productId'); 
     const userName = sessionStorage.getItem('userName');
+
+    
+    let cartProductIds = JSON.parse(sessionStorage.getItem('cartProductIds')) || [];
+    cartProductIds.push(productId);
+    sessionStorage.setItem('cartProductIds', JSON.stringify(cartProductIds));
   
     
     const data = {

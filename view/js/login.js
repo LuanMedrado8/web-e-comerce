@@ -17,7 +17,8 @@ document.getElementById('login_form').addEventListener('submit', async (event) =
     if (response.ok) {
       
         sessionStorage.setItem('userName', userName);
-        sessionStorage.setItem('validation', true);
+        localStorage.setItem('validation', true);
+        sessionStorage.setItem('cartProductIds', JSON.stringify([]));
         window.location.href = '/';
       } else {
         const errorData = await response.json();

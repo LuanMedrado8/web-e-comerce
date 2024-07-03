@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    var isLoggedIn = sessionStorage.getItem('validation');
+    var isLoggedIn = localStorage.getItem('validation');
     console.log(isLoggedIn)
 
     var profileContainer = document.getElementById('photoPerfil');
