@@ -22,11 +22,15 @@ class Product {
     return null;
   }
 
-
+static async getAllProducts() {
+    const result = await pool.query('SELECT * FROM products');
+    return result.rows;
+  }
 
 }
 
 module.exports = {
     Product,
     getProductByProductId: Product.getProductByProductId,
+    getAllProducts: Product.getAllProducts
   };

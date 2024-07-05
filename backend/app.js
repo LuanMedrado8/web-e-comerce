@@ -4,6 +4,8 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const pool = require('./db');
 const path = require('path');
+const userRoutes = require('./routes/todosUsuarios');
+const productRoutes = require('./routes/todosProdutos');
 
 const app = express();
 app.use(cors());
@@ -61,6 +63,9 @@ app.get('/confirmacao', (req, res) => {
 app.get('/editarPerfil', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'view', 'editarPerfil.html'));
 });
+
+app.use('/todosUsuarios', userRoutes);
+app.use('/todosProdutos', productRoutes);
 
 app.use('/auth', authRoutes);
 

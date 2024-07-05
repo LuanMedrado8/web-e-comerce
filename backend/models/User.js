@@ -75,6 +75,12 @@ static async removeUser(userName) {
     return null;
 
 } 
+
+static async getAllUsers() {
+    const result = await pool.query('SELECT * FROM users');
+    return result.rows;
+
+}
 }
 
 module.exports = {
@@ -83,5 +89,7 @@ module.exports = {
   getUserByEmail: User.getUserByEmail,
   getUserByUserName: User.getUserByUserName,
   findByUserNameAndUpdate: User.findByUserNameAndUpdate,
-  removeUser: User.removeUser
+  removeUser: User.removeUser,
+  getAllUsers: User.getAllUsers
+
 };

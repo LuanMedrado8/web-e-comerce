@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const { User, createUser, getUserByEmail, getUserByUserName, findByUserNameAndUpdate, removeUser} = require('../models/User');
-const { Product, getProductByProductId } = require('../models/Product');
+const { Product, getProductByProductId} = require('../models/Product');
 const jwt = require('jsonwebtoken');
 const stripe = require('../middlewares/stripe');
 const { carrinho, createItemCarrinho, getCarrinho, removeProductFromCart, removeCart } = require('../models/carrinho');
@@ -248,5 +248,6 @@ router.delete('/removerUsuario', async (req, res) => {
         res.status(500).json({ error: 'Erro ao remover usuário' });
     }
 });
+
 
 module.exports = router;
